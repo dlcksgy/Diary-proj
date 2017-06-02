@@ -28,7 +28,7 @@
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="number"
+            android:inputType="date"
             android:text="년" />
 
         <EditText
@@ -36,7 +36,7 @@
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="number"
+            android:inputType="date"
             android:text="월" />
 
         <EditText
@@ -45,7 +45,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="top"
-            android:inputType="number"
+            android:inputType="date"
             android:text="일" />
 
     </TableRow>
@@ -59,7 +59,7 @@
           android:ems="10"
           android:gravity="top"
           android:hint="일기 쓰는곳"
-          android:inputType="textPersonName" />
+          android:inputType="text|textMultiLine" />
   </TableRow>
    <TableRow>
        <Button
