@@ -8,7 +8,7 @@
 
     android:orientation="vertical"
 
-    android:background="@color/color_ffffff" >
+    android:background="@color/dim_foreground_dark_inverse_disabled" >
 
 
 
@@ -26,7 +26,7 @@
 
         android:paddingLeft="10dp"
 
-        android:textColor="@color/black"
+        android:textColor="@color/white"
 
         android:textSize="20sp" />
 
@@ -46,7 +46,7 @@
 
         android:numColumns="7"
 
-        android:listSelector="@color/black"
+        android:listSelector="@color/hint_foreground_dark"
 
         >
 
