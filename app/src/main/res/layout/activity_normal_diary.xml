@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/diaryEditText"
+        android:layout_width="match_parent"
+        android:layout_height="444dp"
+        android:ems="10"
+        android:hint="일기 쓰는곳"
+        android:inputType="textPersonName" />
+
+    <Button
+        android:id="@+id/saveButton"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:text="저장" />
+</LinearLayout>
