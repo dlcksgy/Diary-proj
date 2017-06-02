@@ -1,19 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:weightSum="1">
 
-    <EditText
-        android:id="@+id/diaryEditText"
-        android:layout_width="match_parent"
-        android:layout_height="444dp"
-        android:ems="10"
-        android:hint="일기 쓰는곳"
-        android:inputType="textPersonName" />
 
-    <Button
-        android:id="@+id/saveButton"
-        android:layout_width="160dp"
-        android:layout_height="wrap_content"
-        android:text="저장" />
-</LinearLayout>
+    <TableRow>
+        <Button
+            android:id="@+id/temaButton"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:text="배경" />
+        <Button
+            android:id="@+id/dateButton"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:text="오늘날짜" />
+
+    </TableRow>
+
+
+
+    <TableRow>
+
+        <EditText
+            android:id="@+id/yearText"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number"
+            android:text="년" />
+
+        <EditText
+            android:id="@+id/monthText"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number"
+            android:text="월" />
+
+        <EditText
+            android:id="@+id/dayText"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:gravity="top"
+            android:inputType="number"
+            android:text="일" />
+
+    </TableRow>
+  <TableRow>
+
+      <EditText
+          android:id="@+id/diaryEditText"
+          android:layout_width="match_parent"
+          android:layout_height="377dp"
+          android:layout_weight="0.48"
+          android:ems="10"
+          android:gravity="top"
+          android:hint="일기 쓰는곳"
+          android:inputType="textPersonName" />
+  </TableRow>
+   <TableRow>
+       <Button
+           android:id="@+id/saveButton"
+           android:layout_width="160dp"
+           android:layout_height="wrap_content"
+           android:text="저장" />
+   </TableRow>
+
+
+</TableLayout>
