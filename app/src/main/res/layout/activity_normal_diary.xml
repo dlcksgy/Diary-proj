@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:weightSum="1">
@@ -29,7 +30,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="date"
-            android:text="년" />
+            android:text="년"
+            android:textColorLink="@color/color_21a4ff"
+            tools:textColorLink="@color/color_21a4ff" />
 
         <EditText
             android:id="@+id/monthText"
@@ -37,7 +40,8 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="date"
-            android:text="월" />
+            android:text="월"
+            android:textColorLink="@color/color_21a4ff" />
 
         <EditText
             android:id="@+id/dayText"
@@ -46,21 +50,23 @@
             android:ems="10"
             android:gravity="top"
             android:inputType="date"
-            android:text="일" />
+            android:text="일"
+            android:textColorLink="@color/color_21a4ff" />
 
     </TableRow>
 
 
     <TableRow>
+
         <EditText
             android:id="@+id/titleText"
             android:layout_width="70dp"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="date"
-            android:text="제목"
+            android:inputType="text"
 
-            />
+            android:text="제목"
+            android:textColorLink="@color/color_21a4ff" />
     </TableRow>
 
   <TableRow>
@@ -73,7 +79,8 @@
           android:ems="10"
           android:gravity="top"
           android:hint="일기 쓰는곳"
-          android:inputType="text|textMultiLine" />
+          android:inputType="text|textMultiLine"
+          android:textColorLink="?android:attr/colorPressedHighlight" />
   </TableRow>
 
    <TableRow>

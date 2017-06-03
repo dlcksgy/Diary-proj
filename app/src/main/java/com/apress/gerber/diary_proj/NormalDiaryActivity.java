@@ -17,7 +17,9 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 /**
  * Created by Arduino on 2017-05-30.
@@ -55,12 +57,20 @@ public class NormalDiaryActivity extends AppCompatActivity {
         dateButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View V){
+                long now = System.currentTimeMillis();
+                Date date = new Date(now);
+                SimpleDateFormat CurYearFormat = new SimpleDateFormat("yyyy");
+
+                SimpleDateFormat CurMonthFormat = new SimpleDateFormat("MM");
+
+                SimpleDateFormat CurDayFormat = new SimpleDateFormat("dd");
+
                 EditText yearText = (EditText) findViewById(R.id.yearText);
                 EditText monthText = (EditText) findViewById(R.id.monthText);
                 EditText dayText = (EditText) findViewById(R.id.dayText);
-                yearText.setText(String.format("%s",Calendar.DAY_OF_YEAR));
-                monthText.setText(String.format("%s",Calendar.DAY_OF_MONTH));
-                dayText.setText(String.format("%s",Calendar.DATE));
+                yearText.setText(CurYearFormat.format(date));
+                monthText.setText(CurMonthFormat.format(date));
+                dayText.setText(CurDayFormat.format(date));
             }
         });
 
@@ -68,18 +78,34 @@ public class NormalDiaryActivity extends AppCompatActivity {
         saveButton.setOnClickListener(new View.OnClickListener(){   //저장버튼 눌렀을 시 동작부
             @Override
             public void onClick(View v){
+
+                //텍스트로부터 정보를 받아와서 다이어리객체를 만든다.
+
+
+
                 EditText yearText = (EditText) findViewById(R.id.yearText);
                 EditText monthText = (EditText) findViewById(R.id.monthText);
                 EditText dayText = (EditText) findViewById(R.id.dayText);
+                EditText titleText = (EditText) findViewById(R.id.titleText);
                 Toast.makeText(getApplicationContext(),"저장이 되려나...",Toast.LENGTH_SHORT).show();
                 Diary diary = new Diary(getApplicationContext(), diaryEditText.getText().toString());
-                diary.setYear(Integer.parseInt(yearText.getText().toString()));
+                diary.setYear(Integer.parseInt(dayText.getText().toString()));
                 diary.setMonth(Integer.parseInt(monthText.getText().toString()));
-                diary.setDay(Integer.parseInt(dayText.getText().toString()));
-                File file = new File("/storage/emulated/0/.Diaries/" + yearText.getText().toString() +
-                                                                      "/" + monthText.getText().toString() +
-                                                                      "/" + dayText.getText().toString() +
-                                                                      "/" + "일기제목"+".txt");
+                diary.setDay(Integer.parseInt(yearText.getText().toString()));
+                diary.setTitle(titleText.getText().toString());
+
+                //디렉터리가 없으면 디렉터리를 만든다.
+                File dir = new File(String.format("/storage/emulated/0/Diaries/%s/%s/%s",diary.getYear(),
+                                                                                 diary.getMonth(), diary.getDay()));
+                if(!dir.exists()) dir.mkdirs();
+
+
+
+
+                File file = new File("/storage/emulated/0/Diaries/" + diary.getYear() +
+                                                                     "/" + diary.getMonth() +
+                                                                     "/" + diary.getDay() +
+                                                                     "/" + diary.getTitle() + ".txt");
 
                 FileWriter fw = null;
                 BufferedWriter bufw = null;

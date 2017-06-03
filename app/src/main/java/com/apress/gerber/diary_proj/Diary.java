@@ -20,6 +20,16 @@ public class Diary {
     private int year;
     private int month;
     private int day;
+    private String title;
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
     private String diaryText;
 
     public Diary(Context context,String txt){

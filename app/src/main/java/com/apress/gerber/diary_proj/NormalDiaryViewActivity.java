@@ -23,19 +23,6 @@ public class NormalDiaryViewActivity extends AppCompatActivity{
         TextView normalDiaryView = (TextView) findViewById(R.id.normalDiaryView);
         Button correctButton = (Button) findViewById(R.id.correctButton);
 
-
-        try {                                                               //저장되어있던 파일에서 일기 읽어옴
-            normalDiaryView.setText(Diary.loadDiary("text.txt"));
-        }catch(Exception ex){
-            Toast.makeText(getApplicationContext(),ex.toString(),Toast.LENGTH_SHORT);
-        }
-        correctButton.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                Intent intent = new Intent(getApplicationContext(), NormalDiaryActivity.class);
-                startActivity(intent);
-            }
-        });
     }
 
 }
