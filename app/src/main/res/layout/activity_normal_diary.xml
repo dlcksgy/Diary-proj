@@ -13,7 +13,7 @@
             android:text="배경" />
         <Button
             android:id="@+id/dateButton"
-            android:layout_width="100dp"
+            android:layout_width="80dp"
             android:layout_height="match_parent"
             android:text="오늘날짜" />
 
@@ -41,7 +41,7 @@
 
         <EditText
             android:id="@+id/dayText"
-            android:layout_width="50dp"
+            android:layout_width="70dp"
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="top"
@@ -49,22 +49,38 @@
             android:text="일" />
 
     </TableRow>
+
+
+    <TableRow>
+        <EditText
+            android:id="@+id/titleText"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="date"
+            android:text="제목"
+
+            />
+    </TableRow>
+
   <TableRow>
 
       <EditText
           android:id="@+id/diaryEditText"
           android:layout_width="match_parent"
-          android:layout_height="377dp"
+          android:layout_height="337dp"
           android:layout_weight="0.48"
           android:ems="10"
           android:gravity="top"
           android:hint="일기 쓰는곳"
           android:inputType="text|textMultiLine" />
   </TableRow>
+
    <TableRow>
+
        <Button
            android:id="@+id/saveButton"
-           android:layout_width="160dp"
+           android:layout_width="70dp"
            android:layout_height="wrap_content"
            android:text="저장" />
    </TableRow>
