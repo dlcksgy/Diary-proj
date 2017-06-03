@@ -58,9 +58,9 @@ public class NormalDiaryActivity extends AppCompatActivity {
                 EditText yearText = (EditText) findViewById(R.id.yearText);
                 EditText monthText = (EditText) findViewById(R.id.monthText);
                 EditText dayText = (EditText) findViewById(R.id.dayText);
-                yearText.setText(Integer.toString(Calendar.DAY_OF_YEAR));
-                monthText.setText(Integer.toString(Calendar.DAY_OF_MONTH));
-                dayText.setText(Integer.toString(Calendar.DATE));
+                yearText.setText(String.format("%s",Calendar.DAY_OF_YEAR));
+                monthText.setText(String.format("%s",Calendar.DAY_OF_MONTH));
+                dayText.setText(String.format("%s",Calendar.DATE));
             }
         });
 
