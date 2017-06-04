@@ -68,6 +68,7 @@ public class NormalDiaryActivity extends AppCompatActivity {
                 EditText yearText = (EditText) findViewById(R.id.yearText);
                 EditText monthText = (EditText) findViewById(R.id.monthText);
                 EditText dayText = (EditText) findViewById(R.id.dayText);
+                Toast.makeText(getApplicationContext(),CurYearFormat.format(date),Toast.LENGTH_SHORT).show();
                 yearText.setText(CurYearFormat.format(date));
                 monthText.setText(CurMonthFormat.format(date));
                 dayText.setText(CurDayFormat.format(date));
@@ -89,9 +90,9 @@ public class NormalDiaryActivity extends AppCompatActivity {
                 EditText titleText = (EditText) findViewById(R.id.titleText);
                 Toast.makeText(getApplicationContext(),"저장이 되려나...",Toast.LENGTH_SHORT).show();
                 Diary diary = new Diary(getApplicationContext(), diaryEditText.getText().toString());
-                diary.setYear(Integer.parseInt(dayText.getText().toString()));
+                diary.setYear(Integer.parseInt(yearText.getText().toString()));
                 diary.setMonth(Integer.parseInt(monthText.getText().toString()));
-                diary.setDay(Integer.parseInt(yearText.getText().toString()));
+                diary.setDay(Integer.parseInt(dayText.getText().toString()));
                 diary.setTitle(titleText.getText().toString());
 
                 //디렉터리가 없으면 디렉터리를 만든다.
