@@ -36,7 +36,10 @@
 
         <activity android:name=".CalendarActivity">
         </activity>
-        <activity android:name=".DiaryListActivity"></activity>
+
+        <activity android:name=".DiaryListActivity">
+
+        </activity>
     </application>
 
 </manifest>

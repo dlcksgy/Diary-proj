@@ -3,35 +3,47 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:weightSum="1">
-<TableRow>
 
-    <Spinner
-        android:id="@+id/yearSpinner"
-        android:layout_width="100dp"
-        android:layout_height="match_parent" />
+    <TableRow>
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:text="년"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="    " />
 
-    <Spinner
-        android:id="@+id/monthSpinner"
-        android:layout_width="50dp"
-        android:layout_height="match_parent" />
+    </TableRow>
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:text="의 일기목록"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+    <TableRow>
+
+
+        <Spinner
+            android:id="@+id/yearSpinner"
+            android:layout_width="100dp"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:text="년"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+        <Spinner
+            android:id="@+id/monthSpinner"
+            android:layout_width="100dp"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:text="월 일기목록"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
 </TableRow>
     <TableRow>
