@@ -17,12 +17,16 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.OutputStreamWriter;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
 /**
  * Created by Arduino on 2017-05-30.
+ *
+ * 2017-06-4 : 한글저장시 텍스트파일에서 한글깨짐현상 발생. 달력과 리스트뷰를 통해 일기 보는 부분을 구현해야함.
+ *
  */
 
 public class NormalDiaryActivity extends AppCompatActivity {
@@ -76,6 +80,7 @@ public class NormalDiaryActivity extends AppCompatActivity {
         });
 
 
+
         saveButton.setOnClickListener(new View.OnClickListener(){   //저장버튼 눌렀을 시 동작부
             @Override
             public void onClick(View v){
@@ -96,8 +101,8 @@ public class NormalDiaryActivity extends AppCompatActivity {
                 diary.setTitle(titleText.getText().toString());
 
                 //디렉터리가 없으면 디렉터리를 만든다.
-                File dir = new File(String.format("/storage/emulated/0/Diaries/%s/%s/%s",diary.getYear(),
-                                                                                 diary.getMonth(), diary.getDay()));
+                File dir = new File(String.format("/storage/emulated/0/Diaries/%s/%s",diary.getYear(),
+                                                                                 diary.getMonth()));
                 if(!dir.exists()) dir.mkdirs();
 
 
@@ -105,8 +110,7 @@ public class NormalDiaryActivity extends AppCompatActivity {
 
                 File file = new File("/storage/emulated/0/Diaries/" + diary.getYear() +
                                                                      "/" + diary.getMonth() +
-                                                                     "/" + diary.getDay() +
-                                                                     "/" + diary.getTitle() + ".txt");
+                                                                     "/" + diary.getDay() +"."+ diary.getTitle() + ".txt");
 
                 FileWriter fw = null;
                 BufferedWriter bufw = null;
@@ -114,16 +118,14 @@ public class NormalDiaryActivity extends AppCompatActivity {
                     askPermissions();
                 }
                 try {
-                    fw = new FileWriter(file);
-                    bufw = new BufferedWriter(fw);
-                    bufw.write(diary.getDiaryText());
+                    bufw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file.getPath()),"UTF8"));
+                    bufw.write(titleText.getText().toString());
                     Toast.makeText(getApplicationContext(),"저장완료!",Toast.LENGTH_SHORT).show();
                 }catch(Exception ex){
                     Toast.makeText(getApplicationContext(),"File Error : "+ex.toString(),Toast.LENGTH_SHORT).show();
                 }
                 try{
                     if(bufw !=null) bufw.close();
-                    if(fw!=null) fw.close();
                 }catch(Exception ex){
                     Toast.makeText(getApplicationContext(),"File Error : "+ex.toString(),Toast.LENGTH_SHORT).show();
                 }
@@ -133,6 +135,11 @@ public class NormalDiaryActivity extends AppCompatActivity {
         }); //저장버튼 동작부 끝
     }
 }
+
+
+
+
+
 
 
 

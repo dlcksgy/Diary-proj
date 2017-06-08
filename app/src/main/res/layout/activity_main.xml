@@ -10,7 +10,7 @@
         android:id="@+id/exitButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="232dp"
+        android:layout_marginBottom="61dp"
         android:text="종료"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -66,5 +66,13 @@
         app:layout_constraintTop_toBottomOf="@+id/normalDiaryButton"
         tools:layout_constraintLeft_creator="1"
         tools:layout_constraintTop_creator="1" />
+
+    <Button
+        android:id="@+id/diaryListButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="일기 목록"
+        tools:layout_editor_absoluteX="148dp"
+        tools:layout_editor_absoluteY="211dp" />
 
 </android.support.constraint.ConstraintLayout>

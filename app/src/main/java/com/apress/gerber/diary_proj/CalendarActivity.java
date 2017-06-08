@@ -13,11 +13,12 @@ import java.util.List;
 import java.util.Locale;
 
 
-
+import android.annotation.TargetApi;
 import android.app.Activity;
 
 import android.content.Context;
 
+import android.os.Build;
 import android.os.Bundle;
 
 import android.view.LayoutInflater;
@@ -40,6 +41,19 @@ public class CalendarActivity extends Activity {
 
 
 
+    protected boolean shouldAskPermissions() {
+        return (Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP_MR1);
+    }
+    @TargetApi(23)
+    protected void askPermissions() {
+        String[] permissions = {
+                "android.permission.READ_EXTERNAL_STORAGE",
+                "android.permission.WRITE_EXTERNAL_STORAGE"
+        };
+
+        int requestCode = 200;
+        requestPermissions(permissions, requestCode);
+    }
     /**
 
      * 연/월 텍스트뷰
@@ -198,7 +212,7 @@ public class CalendarActivity extends Activity {
 
         for (int i = 0; i < mCal.getActualMaximum(Calendar.DAY_OF_MONTH); i++) {
 
-            dayList.add("" + (i + 1));     //날짜적는부분
+            dayList.add("" + (i + 1) + "\n  " );     //날짜적는부분
 
         }
 
