@@ -45,17 +45,26 @@
             android:text="월 일기목록"
             android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
-</TableRow>
+
+
+    </TableRow>
     <TableRow>
 
         <ListView
             android:id="@+id/diaryList"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="400dp"
             android:layout_marginTop="5dp"
             android:layout_weight="0.18" />
 
 
+    </TableRow>
+    <TableRow>
+        <Button
+            android:id="@+id/setListButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="목록보기" />
     </TableRow>
 
 

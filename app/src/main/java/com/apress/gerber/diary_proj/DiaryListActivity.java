@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Spinner;
 
@@ -25,7 +26,7 @@ public class DiaryListActivity extends Activity {
 
     //월을 나타내는 디렉토리 목록을 저장할 문자열 배열
     private ArrayList<String> monthList = new ArrayList<String>();
-
+    private int month;
     //년도를 나타낼 디렉토리 목록을 저장할 문자열 배열
     private ArrayList<String> yearList = new ArrayList<String>();
     private int year;
@@ -44,6 +45,8 @@ public class DiaryListActivity extends Activity {
         final Spinner monthSpinner = (Spinner) findViewById(R.id.monthSpinner);
 
         final ListView list = (ListView) findViewById(R.id.diaryList);
+
+        Button setListButton = (Button) findViewById(R.id.setListButton);
 
         File diaryDir = new File("/storage/emulated/0/Diaries");
 
@@ -66,8 +69,8 @@ public class DiaryListActivity extends Activity {
                 File yeardir = new File("/storage/emulated/0/Diaries/" + yearList.get(position));
 
                 File temp[] = yeardir.listFiles();
-                for(File file:temp){
-                    monthList.add(file.getName());  //monthList에 새로운 값들을 넣어준다.
+                for(int i = 0; i < temp.length; i++){
+                    monthList.add(temp[i].getName());  //monthList에 새로운 값들을 넣어준다.
                 }
             }
             @Override
@@ -85,6 +88,8 @@ public class DiaryListActivity extends Activity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id){
                 diaryList.clear();
+                month = Integer.parseInt(monthList.get(position));
+ /*
                 File monthDir = new File("/storage/emulated/0/Diaries/" + year + "/" + monthList.get(position));
                 File temp[] = monthDir.listFiles();
                 for(File file:temp){
@@ -92,7 +97,7 @@ public class DiaryListActivity extends Activity {
                 }
                 ArrayAdapter diaryAdapter = new ArrayAdapter(getApplicationContext(), android.R.layout.simple_list_item_1, diaryList);
                 list.setAdapter(diaryAdapter);
-
+*/
 
 
             }
@@ -101,6 +106,20 @@ public class DiaryListActivity extends Activity {
 
             }
         });
+
+        setListButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                File monthDir = new File("/storage/emulated/0/Diaries/" + year + "/" + month );
+                File temp[] = monthDir.listFiles();
+                for(File file:temp){
+                    diaryList.add(file.getName());
+                }
+                ArrayAdapter diaryAdapter = new ArrayAdapter(getApplicationContext(),android.R.layout.simple_list_item_1, diaryList);
+                list.setAdapter(diaryAdapter);
+            }
+        });
+
 
 
 
