@@ -105,6 +105,5 @@ public class DiaryListActivity extends ListActivity{
 
 
 
-
     }
 }
