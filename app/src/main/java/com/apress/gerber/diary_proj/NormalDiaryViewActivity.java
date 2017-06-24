@@ -19,6 +19,11 @@ import java.io.IOException;
  * Created by Arduino on 2017-05-30.
  */
 
+
+
+
+
+
 public class NormalDiaryViewActivity extends AppCompatActivity{
     protected void onCreate(Bundle bundle){
         super.onCreate(bundle);
@@ -30,7 +35,7 @@ public class NormalDiaryViewActivity extends AppCompatActivity{
 
         TextView normalDiaryView = (TextView) findViewById(R.id.normalDiaryView);
 
-        TextView diaryTitle = (TextView) findViewById(R.id.titleText);
+        TextView titleText = (TextView) findViewById(R.id.titleText);
 
         Button correctButton = (Button) findViewById(R.id.correctButton);
 
@@ -38,7 +43,7 @@ public class NormalDiaryViewActivity extends AppCompatActivity{
 
         String title[] = diaryName.split(":"); //여기서팅기는건가?
 
-//        diaryTitle.setText(title[1]); // 왜 여기서 앱이 팅기지
+        titleText.setText(title[1]); // 왜 여기서 앱이 팅기지 -> xml파일에서 텍스트뷰값이 안맞았음 ㅋㅋ-> 근데 아직도팅김;;;
 
         try {
             FileReader fr = new FileReader(diaryName);
