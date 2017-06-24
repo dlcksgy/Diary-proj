@@ -110,7 +110,7 @@ public class NormalDiaryActivity extends AppCompatActivity {
 
                 File file = new File("/storage/emulated/0/Diaries/" + diary.getYear() +
                                                                      "/" + diary.getMonth() +
-                                                                     "/" + diary.getDay() +"."+ diary.getTitle() + ".txt");
+                                                                     "/" + diary.getDay() +"일: "+ diary.getTitle() + ".txt");
 
                 FileWriter fw = null;
                 BufferedWriter bufw = null;

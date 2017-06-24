@@ -3,6 +3,7 @@ package com.apress.gerber.diary_proj;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.ListActivity;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -83,8 +84,7 @@ public class DiaryListActivity extends Activity {
         for(int i = 0; i < temp2.length; i++){
             diaryList.add(temp2[i].getName());
         }
-        ArrayAdapter firstDiaryAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1,diaryList);
-        list.setAdapter(firstDiaryAdapter);
+
 
 
         yearSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
@@ -98,6 +98,7 @@ public class DiaryListActivity extends Activity {
                 for(int i = 0; i < temp.length; i++){
                     monthList.add(temp[i].getName());  //monthList에 새로운 값들을 넣어준다.
                 }
+                //월 스피너에 값들을 넣어준다.
                 ArrayAdapter monthAdapter = new ArrayAdapter(getApplicationContext(),android.R.layout.simple_spinner_item, monthList);
                 monthSpinner.setAdapter(monthAdapter);
             }
@@ -143,14 +144,22 @@ public class DiaryListActivity extends Activity {
                 for(File file:temp){
                     diaryList.add(file.getName());
                 }
+
                 ArrayAdapter diaryAdapter = new ArrayAdapter(getApplicationContext(),android.R.layout.simple_list_item_1, diaryList);
                 list.setAdapter(diaryAdapter);
+                list.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+                    @Override
+                    public void onItemClick(AdapterView parent, View v, int position, long id){
+                        String diaryName = (String) parent.getItemAtPosition(position);
+                        Intent intent = new Intent(getApplicationContext(), NormalDiaryViewActivity.class);
+                        intent.putExtra("diaryName",diaryName);
+                        startActivity(intent);
+
+                    }
+                });
+
             }
         });
-
-
-
-
 
 
 
