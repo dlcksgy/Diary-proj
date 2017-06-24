@@ -119,7 +119,7 @@ public class NormalDiaryActivity extends AppCompatActivity {
                 }
                 try {
                     bufw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file.getPath()),"UTF8"));
-                    bufw.write(titleText.getText().toString());
+                    bufw.write(diary.getDiaryText());  //여기서 텍스트 내용에 제목을 쓰게 되어 있었음... 그걸 이제야찾았네
                     Toast.makeText(getApplicationContext(),"저장완료!",Toast.LENGTH_SHORT).show();
                 }catch(Exception ex){
                     Toast.makeText(getApplicationContext(),"File Error : "+ex.toString(),Toast.LENGTH_SHORT).show();

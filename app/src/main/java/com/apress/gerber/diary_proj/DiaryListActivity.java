@@ -150,7 +150,7 @@ public class DiaryListActivity extends Activity {
                 list.setOnItemClickListener(new AdapterView.OnItemClickListener(){
                     @Override
                     public void onItemClick(AdapterView parent, View v, int position, long id){
-                        String diaryName = (String) parent.getItemAtPosition(position);
+                        String diaryName = "/storage/emulated/0/Diaries/" + year + "/" + month +"/"+ (String) parent.getItemAtPosition(position); //경로가 없어서 파일을 찾지 못했었음.
                         Intent intent = new Intent(getApplicationContext(), NormalDiaryViewActivity.class);
                         intent.putExtra("diaryName",diaryName);
                         startActivity(intent);

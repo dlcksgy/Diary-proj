@@ -27,7 +27,7 @@ public class Diary {
     private int curMonth;
     private int curDay;
     private String title;
-
+    private String diaryText;
     public Diary(Context context,String txt){
         this.context = context;
         this.diaryText = txt;
@@ -54,7 +54,7 @@ public class Diary {
         this.title = title;
     }
 
-    private String diaryText;
+
 
 
     public int getYear() {

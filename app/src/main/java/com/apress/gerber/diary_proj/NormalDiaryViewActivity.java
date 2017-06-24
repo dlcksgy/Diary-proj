@@ -53,4 +53,6 @@ public class NormalDiaryViewActivity extends AppCompatActivity{
         }
     }
 
+
+
 }
