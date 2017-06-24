@@ -30,12 +30,15 @@ public class NormalDiaryViewActivity extends AppCompatActivity{
 
         TextView normalDiaryView = (TextView) findViewById(R.id.normalDiaryView);
 
+        TextView diaryTitle = (TextView) findViewById(R.id.titleText);
+
         Button correctButton = (Button) findViewById(R.id.correctButton);
 
         String line;
 
-        String title;
+        String title[] = diaryName.split(":"); //여기서팅기는건가?
 
+//        diaryTitle.setText(title[1]); // 왜 여기서 앱이 팅기지
 
         try {
             FileReader fr = new FileReader(diaryName);
