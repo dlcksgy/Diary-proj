@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -56,6 +57,17 @@ public class NormalDiaryActivity extends AppCompatActivity {
         Button saveButton = (Button) findViewById(R.id.saveButton);
 
 
+        String  sPath; //절대경로를 찾음
+
+        String ext = Environment.getExternalStorageState();
+        if(ext.equals(Environment.MEDIA_MOUNTED)) {
+            sPath = Environment.getExternalStorageDirectory().getAbsolutePath();
+        }
+        else{
+            sPath = Environment.MEDIA_UNMOUNTED;
+        }
+
+        String sdPath = sPath;
         Button dateButton = (Button) findViewById(R.id.dateButton);
 
         dateButton.setOnClickListener(new View.OnClickListener(){
@@ -101,16 +113,16 @@ public class NormalDiaryActivity extends AppCompatActivity {
                 diary.setTitle(titleText.getText().toString());
 
                 //디렉터리가 없으면 디렉터리를 만든다.
-                File dir = new File(String.format("/storage/emulated/0/Diaries/%s/%s",diary.getYear(),
+                File dir = new File(String.format(Environment.getExternalStorageDirectory().getAbsolutePath()+ "/Diaries/%s/%s",diary.getYear(),
                                                                                  diary.getMonth()));
                 if(!dir.exists()) dir.mkdirs();
 
 
 
 
-                File file = new File("/storage/emulated/0/Diaries/" + diary.getYear() +
+                File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath() +"/Diaries/" + diary.getYear() +
                                                                      "/" + diary.getMonth() +
-                                                                     "/" + diary.getDay() +"일: "+ diary.getTitle() + ".txt");
+                                                                     "/" + diary.getDay() +"일 "+ diary.getTitle() + ".txt");
 
                 FileWriter fw = null;
                 BufferedWriter bufw = null;

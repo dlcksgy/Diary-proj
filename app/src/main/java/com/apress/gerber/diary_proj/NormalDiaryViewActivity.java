@@ -2,6 +2,7 @@ package com.apress.gerber.diary_proj;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -28,6 +29,8 @@ public class NormalDiaryViewActivity extends AppCompatActivity{
     protected void onCreate(Bundle bundle){
         super.onCreate(bundle);
 
+
+
         Intent intent = getIntent();
         String diaryName = intent.getExtras().getString("diaryName");
 
@@ -41,7 +44,7 @@ public class NormalDiaryViewActivity extends AppCompatActivity{
 
         String line;
 
-        String title[] = diaryName.split(":"); //여기서팅기는건가?
+        String title[] = diaryName.split(" "); //여기서팅기는건가?
 
         titleText.setText(title[1]); // 왜 여기서 앱이 팅기지 -> xml파일에서 텍스트뷰값이 안맞았음 ㅋㅋ-> 근데 아직도팅김;;;
 

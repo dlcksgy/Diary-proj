@@ -6,6 +6,7 @@ import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -64,7 +65,7 @@ public class DiaryListActivity extends Activity {
 
         Button setListButton = (Button) findViewById(R.id.setListButton);
 
-        File diaryDir = new File("/storage/emulated/0/Diaries");
+        File diaryDir = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/Diaries");
 
         File temp[] = diaryDir.listFiles();
 
@@ -79,7 +80,7 @@ public class DiaryListActivity extends Activity {
         if(shouldAskPermissions()){
             askPermissions();
         }
-        File monthDir = new File("/storage/emulated/0/Diaries/2017/6");
+        File monthDir = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/Diaries/2017/6");
         File temp2[] = monthDir.listFiles();
         for(int i = 0; i < temp2.length; i++){
             diaryList.add(temp2[i].getName());
@@ -92,7 +93,7 @@ public class DiaryListActivity extends Activity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id){
                 monthList.clear();  //기존에있던 monthList를 비워준다
                 year = Integer.parseInt(yearList.get(position));
-                File yeardir = new File("/storage/emulated/0/Diaries/" + yearList.get(position));
+                File yeardir = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/Diaries/" + yearList.get(position));
 
                 File temp[] = yeardir.listFiles();
                 for(int i = 0; i < temp.length; i++){
@@ -139,7 +140,7 @@ public class DiaryListActivity extends Activity {
         setListButton.setOnClickListener(new View.OnClickListener(){
                     @Override
                     public void onClick(View v){
-                        File monthDir = new File("/storage/emulated/0/Diaries/" + year + "/" + month );
+                        File monthDir = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/Diaries/" + year + "/" + month );
                         File temp[] = monthDir.listFiles();
                 for(File file:temp){
                     diaryList.add(file.getName());
@@ -150,7 +151,7 @@ public class DiaryListActivity extends Activity {
                 list.setOnItemClickListener(new AdapterView.OnItemClickListener(){
                     @Override
                     public void onItemClick(AdapterView parent, View v, int position, long id){
-                        String diaryName = "/storage/emulated/0/Diaries/" + year + "/" + month +"/"+ (String) parent.getItemAtPosition(position); //경로가 없어서 파일을 찾지 못했었음.
+                        String diaryName = Environment.getExternalStorageDirectory().getAbsolutePath() + "/Diaries/" + year + "/" + month +"/"+ (String) parent.getItemAtPosition(position); //경로가 없어서 파일을 찾지 못했었음.
                         Intent intent = new Intent(getApplicationContext(), NormalDiaryViewActivity.class);
                         intent.putExtra("diaryName",diaryName);
                         startActivity(intent);
